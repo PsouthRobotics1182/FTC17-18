@@ -1,4 +1,5 @@
 include ':FtcRobotController'
+include ':FineLib'
 include ':FineMen'
 include ':Ohms'
 include ':Archimedes'

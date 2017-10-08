@@ -110,7 +110,7 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">Orientation</span>
 extends java.lang.Object</pre>
 <div class="block">Instances of <a href="../../../../../../org/firstinspires/ftc/robotcore/external/navigation/Orientation.html" title="class in org.firstinspires.ftc.robotcore.external.navigation"><code>Orientation</code></a> represent a rotated stance in three-dimensional space
- by way of a set of three successive rotations.
+ by way of a set of three successive desiredRotations.
 
  <p>There are several ways that a particular orientation in three-space can be represented.
  One way is by specifying a (unit) directional vector about which the orientation is to occur,
@@ -118,7 +118,7 @@ extends java.lang.Object</pre>
  direction and angle; that is a rotation <code>a</code> about a vector <code>v</code> produces the same
  rotation as a rotation <code>-a</code> about the vector <code>-v</code>. While this manner of specifying a
  rotation is easy to visualize if the vector in question is one of the cardinal axes (ie: X,Y, or Z),
- many find it more difficult to visualize more complex rotations in this manner.</p>
+ many find it more difficult to visualize more complex desiredRotations in this manner.</p>
 
  <p>An alternative, more common, way to represent a particular orientation in three-space is by means
  of indicating three angles of rotation about three successive axes. You might for example be familiar
@@ -137,7 +137,7 @@ extends java.lang.Object</pre>
  </p>
 
  <p>The extrinsic-vs-intrinsic difference accounts for a factor of two in our list of 24 different
- representations. The remaining factor of 12 breaks down into whether the three rotations all use
+ representations. The remaining factor of 12 breaks down into whether the three desiredRotations all use
  different axes (and so are a permutation of X, Y, and Z, of which there are six in number), or whether
  the first and last axes are the same and the middle one different (e.g. Z-Y-Z); this has three
  choices for the first axis (which is also used for the last) and two remaining choices for the
@@ -221,13 +221,13 @@ extends java.lang.Object</pre>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../../../org/firstinspires/ftc/robotcore/external/navigation/AxesOrder.html" title="enum in org.firstinspires.ftc.robotcore.external.navigation">AxesOrder</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/firstinspires/ftc/robotcore/external/navigation/Orientation.html#axesOrder">axesOrder</a></span></code>
-<div class="block">the order of axes around which our three rotations occur</div>
+<div class="block">the order of axes around which our three desiredRotations occur</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../../org/firstinspires/ftc/robotcore/external/navigation/AxesReference.html" title="enum in org.firstinspires.ftc.robotcore.external.navigation">AxesReference</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../../org/firstinspires/ftc/robotcore/external/navigation/Orientation.html#axesReference">axesReference</a></span></code>
-<div class="block">whether we have extrinsic or intrinsic rotations</div>
+<div class="block">whether we have extrinsic or intrinsic desiredRotations</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -378,7 +378,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>axesReference</h4>
 <pre>public&nbsp;<a href="../../../../../../org/firstinspires/ftc/robotcore/external/navigation/AxesReference.html" title="enum in org.firstinspires.ftc.robotcore.external.navigation">AxesReference</a> axesReference</pre>
-<div class="block">whether we have extrinsic or intrinsic rotations</div>
+<div class="block">whether we have extrinsic or intrinsic desiredRotations</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../../../org/firstinspires/ftc/robotcore/external/navigation/Orientation.html#axesOrder"><code>axesOrder</code></a></dd>
@@ -392,7 +392,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>axesOrder</h4>
 <pre>public&nbsp;<a href="../../../../../../org/firstinspires/ftc/robotcore/external/navigation/AxesOrder.html" title="enum in org.firstinspires.ftc.robotcore.external.navigation">AxesOrder</a> axesOrder</pre>
-<div class="block">the order of axes around which our three rotations occur</div>
+<div class="block">the order of axes around which our three desiredRotations occur</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../../../org/firstinspires/ftc/robotcore/external/navigation/Orientation.html#axesReference"><code>axesReference</code></a></dd>
@@ -516,7 +516,7 @@ extends java.lang.Object</pre>
 <div class="block">Converts the <a href="../../../../../../org/firstinspires/ftc/robotcore/external/navigation/Orientation.html" title="class in org.firstinspires.ftc.robotcore.external.navigation"><code>Orientation</code></a> to an equivalent one with the indicted point of view.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>axesReference</code> - whether we wish to consider rotations from an extrinsic or intrinsic point of view</dd>
+<dd><code>axesReference</code> - whether we wish to consider desiredRotations from an extrinsic or intrinsic point of view</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>an equivalent orientation but with the indicated point of view.</dd>
 </dl>
