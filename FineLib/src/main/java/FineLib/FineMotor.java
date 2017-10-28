@@ -15,6 +15,7 @@ public class FineMotor {
     private double wheelRadius;
     private double linearSpeed = 0;
     private double rotationalSpeed = 0;
+    private double power = 0;
     private int startPos = 0;
 
     //the gear ratio after the output shaft of the motor
@@ -34,27 +35,45 @@ public class FineMotor {
     public void setLinearSpeed(double linearSpeed) {
         this.linearSpeed = linearSpeed;
         this.rotationalSpeed = lin2rot(linearSpeed);
-
+        this.power = this.rotationalSpeed/(maxRotationalSpeed());
     }
     public void setRotationalSpeed(double rotationalSpeed){
         this.rotationalSpeed = rotationalSpeed;
         this.linearSpeed = rot2lin(rotationalSpeed);
+        this.power = this.rotationalSpeed/(maxRotationalSpeed());
     }
-    public double maxRotationalSpeed() {
-        return motor.getMotorType().getAchieveableMaxRPMFraction();
+
+    public void setPower(double power) {
+        this.power = power;
+        this.rotationalSpeed = this.power * this.maxRotationalSpeed();
+        this.linearSpeed = rot2lin(this.rotationalSpeed);
+    }
+
+    public double getLinearSpeed() {
+        return linearSpeed;
+    }
+
+    public double getRotationalSpeed() {
+        return rotationalSpeed;
+    }
+
+    public double getPower() {
+        return power;
     }
     public void power() {
-        double power = this.rotationalSpeed/(maxRotationalSpeed());
         motor.setPower(power);
     }
-    public void power(double power) {
+    /*public void power(double power) {
         motor.setPower(power);
-    }
+    }*/
     public void stop() {
         motor.setPower(0);
     }
     public int getCurrentPosition() {
         return motor.getCurrentPosition()-startPos;
+    }
+    public double maxRotationalSpeed() {
+        return motor.getMotorType().getAchieveableMaxRPMFraction();
     }
     public void resetPosition() {
         startPos = motor.getCurrentPosition();
